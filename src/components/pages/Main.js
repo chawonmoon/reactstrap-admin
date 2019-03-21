@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import Header from "components/layout/Header";
 import Footer from "components/layout/Footer";
 import ContentsWrap from "components/layout/ContentsWrap";
@@ -6,11 +6,11 @@ import ContentsWrap from "components/layout/ContentsWrap";
 class Main extends Component {
   render() {
     return (
-      <div>
+      <Fragment>
         <Header />
         <ContentsWrap />
         <Footer />
-      </div>
+      </Fragment>
     );
   }
 }

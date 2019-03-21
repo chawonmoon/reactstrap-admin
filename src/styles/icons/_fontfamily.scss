@@ -1,0 +1,29 @@
+@import "variables";
+
+@font-face {
+  font-family: "icomoon";
+  src: url("#{$ico-font-path}/icomoon.eot?h3g94c");
+  src: url("#{$ico-font-path}/icomoon.eot?h3g94c#iefix")
+      format("embedded-opentype"),
+    url("#{$ico-font-path}/icomoon.ttf?h3g94c") format("truetype"),
+    url("#{$ico-font-path}/icomoon.woff?h3g94c") format("woff"),
+    url("#{$ico-font-path}/icomoon.svg?h3g94c#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="ico-"],
+[class*=" ico-"] {
+  // Base 폰트로 덮어씌워지는 문제 설정
+  font-family: "icomoon" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  // 글꼴 렌더링 설정
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

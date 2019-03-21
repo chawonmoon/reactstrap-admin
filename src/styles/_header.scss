@@ -1,0 +1,83 @@
+// 버튼 공통 상속 속성
+%common-props {
+  display: inline-block;
+  color: #fff;
+  height: 60px;
+  line-height: 60px;
+  font-size: 20px;
+  margin-top: 2px;
+  &:hover {
+    background: #d37175;
+  }
+}
+
+header.admin-header {
+  margin: 0;
+  padding: 0;
+  background: #f3848c;
+  overflow: hidden;
+  h1 {
+    margin: 0;
+    padding: 0;
+    float: left;
+    line-height: 64px;
+    height: 64px;
+    a img {
+      vertical-align: bottom;
+    }
+  }
+
+  a.btn_snb {
+    @extend %common-props;
+    float: left;
+    padding: 0 20px;
+    margin-left: 10px;
+  }
+  a.btn_admin {
+    @extend %common-props;
+    float: right;
+    padding: 0 10px;
+    margin-right: 10px;
+    span {
+      display: inline-block;
+      font-size: 16px;
+      margin-left: 5px;
+      vertical-align: top;
+      font-weight: bold;
+    }
+  }
+}
+
+// 모바일 해상도 대응 768 이하
+@include mob {
+  header.admin-header {
+    position: relative;
+    h1 {
+      float: none;
+      text-align: center;
+      a {
+        display: inline-block;
+        overflow: hidden;
+        width: 50px;
+      }
+    }
+    a.btn_snb {
+      position: absolute;
+      margin-left: 0;
+      left: 0;
+      top: 0;
+      float: none;
+    }
+    a.btn_admin {
+      position: absolute;
+      margin-right: 0;
+      padding: 0 20px;
+      right: 0;
+      top: 0;
+      float: none;
+      span {
+        display: none;
+      }
+    }
+  }
+}

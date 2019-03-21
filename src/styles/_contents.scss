@@ -1,0 +1,9 @@
+div.contentsWrap {
+  height: calc(100% - 119px);
+}
+
+@include mob {
+  div.contentsWrap {
+    height: calc(100% - 121px);
+  }
+}

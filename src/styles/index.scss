@@ -1,0 +1,20 @@
+// Bootstrap 기본 스타일 참조
+@import "bootstrap/scss/bootstrap.scss";
+
+// Icon 폰트 Index파일
+@import "icons/index";
+
+// 부트스트랩 베이스 스타일 수정
+@import "reboot";
+
+// 믹스인
+@import "mixins";
+
+// 페이지 기본 상단
+@import "header";
+
+// 페이지 기본 하단 푸터
+@import "footer";
+
+// 컨텐츠 영역
+@import "contents";

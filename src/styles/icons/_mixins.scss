@@ -1,0 +1,4 @@
+// content 속성을 지정하는데 편리한 함수
+@function ico-content($ico-var) {
+  @return unquote("'#{$ico-var}'");
+}
