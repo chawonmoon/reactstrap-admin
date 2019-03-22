@@ -1,9 +1,93 @@
-div.contentsWrap {
-  height: calc(100% - 119px);
+@mixin rotate90 {
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+div.admin-contentsWrap {
+  position: relative;
+  min-height: calc(100% - 119px);
+  overflow: hidden;
+  aside.admin-sidebar {
+    position: absolute;
+    width: 235px;
+    min-height: 100%;
+    background: #f3848c;
+    ul {
+      margin: 0;
+      padding: 0;
+      li {
+        list-style: none;
+        a {
+          display: block;
+          padding: 15px 10px 15px 20px;
+          color: #fff;
+          i {
+            margin-right: 10px;
+            font-size: 18px;
+            &.downbullet {
+              float: right;
+              font-size: 18px !important;
+              opacity: 0.8;
+              margin-right: 0;
+            }
+          }
+          span {
+            font-size: 16px;
+          }
+          &:hover {
+            background: #d37175;
+          }
+        }
+        div.child-depth {
+          background: #d37175;
+          div.card {
+            background: transparent;
+            border-radius: 0;
+            border-left: 0;
+            border-right: 0;
+            div.card-body {
+              padding: 0;
+              li {
+                padding-left: 10px;
+                a {
+                  &:hover {
+                    i.bullet,
+                    span {
+                      font-size: 15px;
+                      font-weight: 800;
+                    }
+                  }
+                  i {
+                    transition: all 0.2s ease-in-out;
+                    margin-right: 10px;
+                    font-size: 10px;
+                    &.downbullet {
+                      margin-right: 0;
+                    }
+                  }
+                  span {
+                    transition: all 0.2s ease-in-out;
+                    font-size: 14px;
+                  }
+                }
+              }
+            }
+          }
+          &.show ~ a i.downbullet {
+            transform: rotate(90deg);
+          }
+        }
+      }
+    }
+  }
+  div.admin-contents {
+    width: 100%;
+    margin-left: 235px;
+  }
 }
 
 @include mob {
   div.contentsWrap {
-    height: calc(100% - 121px);
+    min-height: calc(100% - 121px);
   }
 }

@@ -5,7 +5,7 @@ import Contents from "components/layout/Contents";
 class ContentsWrap extends Component {
   render() {
     return (
-      <div className="contentsWrap">
+      <div className="admin-contentsWrap">
         <Sidebar />
         <Contents />
       </div>
