@@ -21,6 +21,7 @@ div.admin-contentsWrap {
           display: block;
           padding: 15px 10px 15px 20px;
           color: #fff;
+          transition: all 0.2s ease-out;
           i {
             margin-right: 10px;
             font-size: 18px;
@@ -29,15 +30,30 @@ div.admin-contentsWrap {
               font-size: 18px !important;
               opacity: 0.8;
               margin-right: 0;
+              transition: all 0.2s ease-out;
             }
           }
           span {
             font-size: 16px;
+            word-break: keep-all;
+            transition: all 0.2s ease-out;
           }
           &:hover {
             background: #d37175;
           }
         }
+        &.sidebar-collapse-button,
+        .Opened,
+        .Opening {
+          background: #d37175;
+          > span {
+            font-weight: bold;
+          }
+          > i.downbullet {
+            transform: rotate(90deg);
+          }
+        }
+
         div.child-depth {
           background: #d37175;
           div.card {
@@ -58,7 +74,7 @@ div.admin-contentsWrap {
                     }
                   }
                   i {
-                    transition: all 0.2s ease-in-out;
+                    transition: all 0.3s ease-in-out;
                     margin-right: 10px;
                     font-size: 10px;
                     &.downbullet {
@@ -72,9 +88,6 @@ div.admin-contentsWrap {
                 }
               }
             }
-          }
-          &.show ~ a i.downbullet {
-            transform: rotate(90deg);
           }
         }
       }
