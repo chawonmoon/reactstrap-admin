@@ -4,8 +4,8 @@ import { Breadcrumb, BreadcrumbItem } from "reactstrap";
 
 const Breadcrumbs = props => {
   return (
-    <div>
-      <Breadcrumb>
+    <div className="breadcrumbs-wrap">
+      <Breadcrumb className="breadcrumbs">
         <BreadcrumbItem>
           <Link to="/">
             <i className="ico-home" />
@@ -32,6 +32,10 @@ const BuildCrumbs = (props, key) => {
         {props.name}
       </BreadcrumbItem>
     );
+};
+
+Breadcrumbs.defaultProps = {
+  breadcrumb: [{ name: "Props가 없습니다.", linkto: null }]
 };
 
 export default Breadcrumbs;

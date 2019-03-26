@@ -1,9 +1,94 @@
-.breadcrumb {
-  font-size: 14px;
-  .breadcrumb-item {
-    & + .breadcrumb-item::before {
-      content: "〉";
-      font-weight: 900;
+// breadcrumb
+nav.breadcrumbs {
+  .breadcrumb {
+    font-size: 14px;
+    display: flex;
+    justify-content: flex-end;
+    .breadcrumb-item {
+      & + .breadcrumb-item::before {
+        content: "〉";
+        font-weight: 900;
+      }
     }
+  }
+}
+
+.selectboxs-wrap {
+  .selectboxs {
+    > div {
+      border-radius: 0.25rem;
+    }
+    > span + div {
+      border-color: #ccc;
+      box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    }
+  }
+}
+// boards searchutils
+div.boards-list-utils {
+  display: flex;
+  justify-content: space-between;
+  & > .selectboxs-wrap {
+    width: 140px;
+    .selectboxs {
+      > div {
+        border-radius: 0.25rem;
+      }
+    }
+  }
+}
+
+// 게시판 list search-utils
+div.search-utils {
+  width: 358px;
+  margin-bottom: 15px;
+  .input-group {
+    display: flex;
+    justify-content: flex-end;
+    .selectboxs-wrap {
+      width: 100px;
+    }
+    .search-text {
+      width: 204px;
+      border-radius: 0.25rem 0 0 0.25rem;
+      margin-left: 5px;
+    }
+  }
+}
+
+.btn-pink {
+  color: #fff;
+  background-color: #f3848c;
+  border-color: #f3848c;
+  &:hover {
+    color: #fff;
+    background-color: #d37175;
+    border-color: #d37175;
+  }
+}
+.form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+// 게시판 list 테이블
+.table-defaults {
+  td {
+    position: relative;
+    span {
+      word-break: keep-all;
+    }
+  }
+  .table-contents {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    position: absolute;
+    left: 0;
+    right: 0;
+    padding: 0 10px;
   }
 }
