@@ -33,14 +33,14 @@ const OBJ_MENUS_NAME = {
           trunks: "1",
           menu: "게시판",
           linkto: "/Boards",
-          icon: "ico-bullhorn",
+          icon: "ico-minus",
           childepth: []
         },
         {
           trunks: "1",
           menu: "푸시",
           linkto: "/Pushs",
-          icon: "ico-bullhorn",
+          icon: "ico-minus",
           childepth: []
         }
       ]
@@ -104,7 +104,10 @@ const FN_MENUS_RENDER = (menus, i) => {
 
 // 메인 컴포넌트
 class Sidebar extends Component {
-  state = { menuDatas: OBJ_MENUS_NAME };
+  constructor(props) {
+    super(props);
+    this.state = { menuDatas: OBJ_MENUS_NAME };
+  }
 
   render() {
     return (

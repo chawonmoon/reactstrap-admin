@@ -1,30 +1,37 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Breadcrumb, BreadcrumbItem } from "reactstrap";
-import { withRouter } from "react-router";
 
 const Breadcrumbs = props => {
   return (
     <div>
       <Breadcrumb>
-        <BreadcrumbItem active>Home</BreadcrumbItem>
-      </Breadcrumb>
-      <Breadcrumb>
         <BreadcrumbItem>
-          <a href="#none">Home</a>
+          <Link to="/">
+            <i className="ico-home" />
+          </Link>
         </BreadcrumbItem>
-        <BreadcrumbItem active>Library</BreadcrumbItem>
-      </Breadcrumb>
-      <Breadcrumb>
-        <BreadcrumbItem>
-          <a href="#none">Home</a>
-        </BreadcrumbItem>
-        <BreadcrumbItem>
-          <a href="#none">Library</a>
-        </BreadcrumbItem>
-        <BreadcrumbItem active>Data</BreadcrumbItem>
+        {props.breadcrumb.map((crumbs, i) => {
+          return BuildCrumbs(crumbs, i);
+        })}
       </Breadcrumb>
     </div>
   );
 };
 
-export default withRouter(Breadcrumbs);
+const BuildCrumbs = (props, key) => {
+  if (props.linkto)
+    return (
+      <BreadcrumbItem key={key}>
+        <Link to={props.linkto}>{props.name}</Link>
+      </BreadcrumbItem>
+    );
+  else
+    return (
+      <BreadcrumbItem key={key} active>
+        {props.name}
+      </BreadcrumbItem>
+    );
+};
+
+export default Breadcrumbs;
