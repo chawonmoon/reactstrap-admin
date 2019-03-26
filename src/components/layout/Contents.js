@@ -3,8 +3,8 @@ import { Route } from "react-router-dom";
 import {
   Home,
   Notice,
-  Notice2,
-  Notice3,
+  Boards,
+  Pushs,
   Popup,
   Charge,
   Banks,
@@ -19,8 +19,8 @@ class Contents extends Component {
         <div className="admin-contents-inner">
           <Route exact path="/" component={Home} />
           <Route path="/Notice" component={Notice} />
-          <Route path="/Notice2" component={Notice2} />
-          <Route path="/Notice3" component={Notice3} />
+          <Route path="/Boards" component={Boards} />
+          <Route path="/Pushs" component={Pushs} />
           <Route path="/Popup" component={Popup} />
           <Route path="/Charge" component={Charge} />
           <Route path="/Banks" component={Banks} />

@@ -1,7 +1,7 @@
 export { default as Home } from "components/pages/Home";
 export { default as Notice } from "components/pages/Notice";
-export { default as Notice2 } from "components/pages/Notice2";
-export { default as Notice3 } from "components/pages/Notice3";
+export { default as Boards } from "components/pages/Boards";
+export { default as Pushs } from "components/pages/Pushs";
 export { default as Popup } from "components/pages/Popup";
 export { default as Charge } from "components/pages/Charge";
 export { default as Banks } from "components/pages/Banks";
