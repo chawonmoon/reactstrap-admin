@@ -4,14 +4,10 @@ import { Table, Badge } from "reactstrap";
 class TablesH extends Component {
   render() {
     return (
-      <Table striped bordered className="table-defaults">
-        <colgroup>
-          <col style={{ width: "10%" }} />
-          <col style={{ width: "auto" }} />
-        </colgroup>
+      <Table bordered className="table-defaults tables-hor">
         <tbody>
           <tr>
-            <th scope="col">
+            <th scope="row">
               <span>등록일시</span>
             </th>
             <td>
@@ -19,7 +15,7 @@ class TablesH extends Component {
             </td>
           </tr>
           <tr>
-            <th scope="col">
+            <th scope="row">
               <span>제목</span>
             </th>
             <td>
@@ -30,7 +26,7 @@ class TablesH extends Component {
             </td>
           </tr>
           <tr>
-            <th scope="col">
+            <th scope="row">
               <span>내용</span>
             </th>
             <td>
@@ -44,22 +40,40 @@ class TablesH extends Component {
             </td>
           </tr>
           <tr>
-            <th scope="col">
+            <th scope="row">
               <span>최근공지 게시상태</span>
             </th>
             <td>
               <span>
-                <Badge color="danger" pill>
-                  만료
+                <Badge color="primary" pill>
+                  Primary
                 </Badge>
                 <Badge color="secondary" pill>
-                  사용정지
+                  Secondary
+                </Badge>
+                <Badge color="success" pill>
+                  Success
+                </Badge>
+                <Badge color="danger" pill>
+                  Danger
+                </Badge>
+                <Badge color="warning" pill>
+                  Warning
+                </Badge>
+                <Badge color="info" pill>
+                  Info
+                </Badge>
+                <Badge color="light" pill>
+                  Light
+                </Badge>
+                <Badge color="dark" pill>
+                  Dark
                 </Badge>
               </span>
             </td>
           </tr>
           <tr>
-            <th scope="col">
+            <th scope="row">
               <span>최근공지 게시일시</span>
             </th>
             <td>

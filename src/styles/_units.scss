@@ -1,5 +1,5 @@
 // breadcrumb
-nav.breadcrumbs {
+.breadcrumbs {
   .breadcrumb {
     font-size: 14px;
     display: flex;
@@ -13,23 +13,34 @@ nav.breadcrumbs {
   }
 }
 
-.selectboxs-wrap {
+// selectbox
+.selectboxs-wrap,
+.selectboxsMulti-wrap {
+  min-width: 140px;
   .selectboxs {
     > div {
       border-radius: 0.25rem;
+      min-height: 33px;
     }
     > span + div {
       border-color: #ccc;
       box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
     }
+    div[aria-hidden] {
+      padding: 0.4115rem 8px;
+    }
   }
 }
+.selectboxsMulti-wrap {
+  min-width: 220px;
+}
+
 // boards searchutils
-div.boards-list-utils {
+.boards-list-utils {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 15px;
   & > .selectboxs-wrap {
-    width: 140px;
     .selectboxs {
       > div {
         border-radius: 0.25rem;
@@ -38,10 +49,9 @@ div.boards-list-utils {
   }
 }
 
-// 게시판 list search-utils
-div.search-utils {
-  width: 358px;
-  margin-bottom: 15px;
+// 게시판 search-utils
+.search-utils {
+  width: 385px;
   .input-group {
     display: flex;
     justify-content: flex-end;
@@ -56,6 +66,39 @@ div.search-utils {
   }
 }
 
+// 게시판 button 유틸리티
+
+.btn-groups {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+  padding: 1rem;
+  &.pages {
+    background: #e9ecef;
+    border-radius: 0.25rem;
+  }
+  &.modals {
+    justify-content: flex-end;
+  }
+  &.list {
+    .pagination {
+      margin-bottom: 0;
+    }
+  }
+  & > div > .btn {
+    margin-right: 5px;
+  }
+  .btn {
+    i {
+      font-size: 0.5rem;
+      margin-right: 5px;
+    }
+    span {
+      font-weight: 700;
+    }
+  }
+}
+
 .btn-pink {
   color: #fff;
   background-color: #f3848c;
@@ -66,6 +109,7 @@ div.search-utils {
     border-color: #d37175;
   }
 }
+
 .form-control:focus {
   color: #495057;
   background-color: #fff;
@@ -76,19 +120,44 @@ div.search-utils {
 
 // 게시판 list 테이블
 .table-defaults {
-  td {
-    position: relative;
-    span {
-      word-break: keep-all;
+  &.tables-ver {
+    min-width: 720px;
+  }
+
+  tbody {
+    th {
+      width: 10%;
+      span {
+        word-break: keep-all;
+      }
+    }
+    td {
+      position: relative;
+      span {
+        word-break: keep-all;
+        .badge {
+          margin-right: 5px;
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+      }
+      &.table-ellipsis {
+        width: 40%;
+        > span {
+          position: absolute;
+          display: block;
+          width: calc(100% - 24px);
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+      }
     }
   }
-  .table-contents {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    position: absolute;
-    left: 0;
-    right: 0;
-    padding: 0 10px;
+}
+.table-responsive {
+  > .table-defaults {
+    margin-bottom: 0;
   }
 }

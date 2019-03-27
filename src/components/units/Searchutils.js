@@ -1,17 +1,8 @@
 import React, { Component } from "react";
 import Selectboxs from "components/units/Selectboxs";
-import {
-  InputGroup,
-  InputGroupAddon, 
-  Input,
-  Button 
-} from "reactstrap";
+import { InputGroup, InputGroupAddon, Input, Button } from "reactstrap";
 
 class Searchutils extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div className="search-utils">

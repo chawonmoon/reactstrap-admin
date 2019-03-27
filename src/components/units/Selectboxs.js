@@ -10,7 +10,7 @@ class Selectboxs extends Component {
     selectedOption: null
   };
 
-  // 셀렉트박스 onChange 핸들러 함수(인자값은 option값만 반환된)
+  // 셀렉트박스 onChange 핸들러 함수(인자값은 option형식의 값만 반환된)
   handleChange = selectedOption => {
     this.setState({ selectedOption });
     console.log(`선택된 옵션값:`, selectedOption);

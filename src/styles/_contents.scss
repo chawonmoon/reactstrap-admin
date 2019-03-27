@@ -26,8 +26,12 @@ div.admin-contentsWrap {
           color: #fff;
           transition: all 0.2s ease-out;
           i {
+            display: inline-block;
+            height: 23px;
+            line-height: 23px;
             margin-right: 10px;
             font-size: 18px;
+            vertical-align: top;
             &.downbullet {
               float: right;
               font-size: 18px !important;
@@ -37,8 +41,10 @@ div.admin-contentsWrap {
             }
           }
           span {
+            display: inline-block;
+            max-width: 155px;
             font-size: 16px;
-            word-break: keep-all;
+            word-break: break-all;
             transition: all 0.2s ease-out;
           }
           &:hover {

@@ -1,8 +1,12 @@
 html,
-body,
-#root {
+body {
+  font-size: 0.875rem;
   height: 100%;
   min-width: 320px;
+  #root {
+    height: 100%;
+    min-width: 320px;
+  }
 }
 
 a:hover {
