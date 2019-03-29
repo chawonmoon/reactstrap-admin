@@ -6,8 +6,8 @@ class Searchutils extends Component {
   render() {
     return (
       <div className="search-utils">
-        <InputGroup>
-          <Selectboxs selectopt={this.props.searchopt} />
+        <Selectboxs selectopt={this.props.searchopt} />
+        <InputGroup>          
           <Input
             type="search"
             placeholder="검색어를 입력하세요."

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Table, Badge } from "reactstrap";
+import Colorpickers from "components/units/Colorpickers";
 
 class TablesH extends Component {
   render() {
@@ -70,6 +71,14 @@ class TablesH extends Component {
                   Dark
                 </Badge>
               </span>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">
+              <span>기본색상</span>
+            </th>
+            <td>
+              <Colorpickers />
             </td>
           </tr>
           <tr>

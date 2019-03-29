@@ -1,9 +1,5 @@
 export { default as Home } from "components/pages/Home";
-export { default as Notice } from "components/pages/Notice";
-export { default as Boards } from "components/pages/Boards";
-export { default as Pushs } from "components/pages/Pushs";
-export { default as Popup } from "components/pages/Popup";
-export { default as Charge } from "components/pages/Charge";
-export { default as Banks } from "components/pages/Banks";
-export { default as Info } from "components/pages/Info";
-export { default as Faq } from "components/pages/Faq";
+export { default as Tables } from "components/pages/Tables";
+export { default as Utilitys } from "components/pages/Utilitys";
+export { default as Badges } from "components/pages/Badges";
+export { default as Buttons } from "components/pages/Buttons";

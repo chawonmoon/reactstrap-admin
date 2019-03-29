@@ -25,59 +25,30 @@ const OBJ_MENUS_NAME = {
     },
     {
       trunks: "1",
-      menu: "공지사항",
-      linkto: "/Notice",
+      menu: "Table",
+      linkto: "/Tables",
       icon: "ico-bullhorn",
-      childepth: [
-        {
-          trunks: "1",
-          menu: "게시판",
-          linkto: "/Boards",
-          icon: "ico-minus",
-          childepth: []
-        },
-        {
-          trunks: "1",
-          menu: "푸시",
-          linkto: "/Pushs",
-          icon: "ico-minus",
-          childepth: []
-        }
-      ]
+      childepth: []
     },
     {
       trunks: "2",
-      menu: "팝업",
-      linkto: "/Popup",
-      icon: "ico-notification",
+      menu: "Utilitys",
+      linkto: "/Utilitys",
+      icon: "ico-bullhorn",
       childepth: []
     },
     {
       trunks: "3",
-      menu: "가스요금표",
-      linkto: "/Charge",
+      menu: "Badges",
+      linkto: "/Badges",
       icon: "ico-bullhorn",
       childepth: []
     },
     {
       trunks: "4",
-      menu: "요금납부 은행",
-      linkto: "/Banks",
-      icon: "ico-coin-dollar",
-      childepth: []
-    },
-    {
-      trunks: "5",
-      menu: "이용안내",
-      linkto: "/Info",
-      icon: "ico-book",
-      childepth: []
-    },
-    {
-      trunks: "6",
-      menu: "자주하는 질문",
-      linkto: "/Faq",
-      icon: "ico-users",
+      menu: "Buttons",
+      linkto: "/Buttons",
+      icon: "ico-bullhorn",
       childepth: []
     }
   ]

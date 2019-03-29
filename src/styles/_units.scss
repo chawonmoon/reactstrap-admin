@@ -33,6 +33,9 @@
 }
 .selectboxsMulti-wrap {
   min-width: 220px;
+  .badge {
+    margin-left: 5px;
+  }
 }
 
 // boards searchutils
@@ -52,14 +55,14 @@
 // 게시판 search-utils
 .search-utils {
   width: 385px;
+  margin-left: 5px;
+  display: flex;
+  justify-content: flex-end;
   .input-group {
-    display: flex;
-    justify-content: flex-end;
     .selectboxs-wrap {
       width: 100px;
     }
     .search-text {
-      width: 204px;
       border-radius: 0.25rem 0 0 0.25rem;
       margin-left: 5px;
     }
@@ -67,7 +70,6 @@
 }
 
 // 게시판 button 유틸리티
-
 .btn-groups {
   display: flex;
   justify-content: space-between;
@@ -91,7 +93,6 @@
   .btn {
     i {
       font-size: 0.5rem;
-      margin-right: 5px;
     }
     span {
       font-weight: 700;
@@ -107,6 +108,11 @@
     color: #fff;
     background-color: #d37175;
     border-color: #d37175;
+  }
+}
+.btn {
+  > i {
+    margin-right: 5px;
   }
 }
 
@@ -159,5 +165,93 @@
 .table-responsive {
   > .table-defaults {
     margin-bottom: 0;
+  }
+}
+
+// ColorPicker
+.color-pickers {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  .color-swatch {
+    padding: 2px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+    border-right: 0;
+    display: inline-block;
+    cursor: pointer;
+    > div {
+      width: 28px;
+      height: 27px;
+      border-radius: 0.25rem;
+    }
+    + input {
+      &[type="text"] {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+      &[readonly] {
+        background: #fff;
+      }
+    }
+  }
+  .color-popover {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 2;
+    .color-cover {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+  }
+}
+
+// Drag&Drop list
+.drag-lists {
+  background: #e9ecef;
+  border-radius: 0.25rem;
+  padding: 0.25rem;
+  .drag-items {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    background: #fff;
+    user-select: none;
+    padding: 16px;
+    p {
+      margin-bottom: 0;
+      span.title {
+        font-size: 16px;
+      }
+      .badge {
+        margin-left: 5px;
+      }
+      i {
+        display: inline-block;
+        padding: 5px;
+        margin-right: 10px;
+        background: #e9ecef;
+        border: 1px solid #ccc;
+        font-size: 12px;
+        &:hover {
+          background: #ccc;
+          cursor: move;
+        }
+      }
+    }
+    .btn-group > * {
+      margin-left: 5px;
+    }
+    &.dragging {
+      cursor: -webkit-grabbing;
+      cursor: grabbing;
+    }
   }
 }

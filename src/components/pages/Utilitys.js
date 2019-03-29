@@ -3,24 +3,16 @@ import Breadcrumbs from "components/units/Breadcrumbs";
 import Selectboxs from "components/units/Selectboxs";
 import SelectboxsMulti from "components/units/SelectboxsMulti";
 import Searchutils from "components/units/Searchutils";
-import TablesV from "components/units/TablesV";
-import TablesH from "components/units/TablesH";
-import BtngroupsList from "components/units/BtngroupsList";
-import BtngroupsDetail from "components/units/BtngroupsDetail";
-import BtngroupsModal from "components/units/BtngroupsModal";
-import PageAlerts from "components/units/PageAlerts";
+import Colorpickers from "components/units/Colorpickers";
 import Dragndroplist from "components/units/Dragndroplist";
 
-class Home extends Component {
+class Utilitys extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       // 브레드크럼 데이터 입력값 (defaultprops 있음)
-      breadcrumb: [
-        { name: "공지사항", linkto: "/Boards" },
-        { name: "게시판", linkto: null }
-      ],
+      breadcrumb: [{ name: "Utilitys", linkto: "/Utilitys" }],
       // 보이는 목록 개수선택 셀렉트박스 옵션값 (defaultprops 있음)
       selectopt: [
         { value: 10, label: "목록 10개" },
@@ -44,23 +36,24 @@ class Home extends Component {
     return (
       <Fragment>
         <Breadcrumbs breadcrumb={this.state.breadcrumb} />
+        <h2>테이블 검색영역</h2>
         <div className="boards-list-utils">
           <Selectboxs selectopt={this.state.selectopt} />
           <Searchutils searchopt={this.state.searchopt} />
         </div>
+        <br />
+        <h2>멀티 콤보 셀렉트 메뉴</h2>
         <div className="boards-list-utils">
           <SelectboxsMulti selectopt={this.state.selectoptMulti} />
         </div>
-        <TablesV />
-        <BtngroupsList />
-        <BtngroupsDetail />
-        <BtngroupsModal />
-        <TablesH />
-        <PageAlerts />
+        <h2>컬러피커</h2>
+        <Colorpickers />
+        <br />
+        <h2>드래그 앤 드롭 리스트</h2>
         <Dragndroplist />
       </Fragment>
     );
   }
 }
 
-export default Home;
+export default Utilitys;
