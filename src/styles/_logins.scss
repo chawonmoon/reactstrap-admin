@@ -1,0 +1,31 @@
+.admin-login {
+  position: relative;
+  max-width: 360px;
+  margin: 0 auto;
+  padding: 30px;
+  top: calc(50% - 209px);
+  h1 {
+    text-align: center;
+  }
+  .form-group {
+    position: relative;
+    overflow: hidden;
+    i {
+      position: absolute;
+      right: 6px;
+      top: 8px;
+      width: 25px;
+      text-align: center;
+      font-size: 16px;
+      &.ico-lock {
+        margin-right: -2px;
+      }
+    }
+    input {
+      padding-right: 36px;
+    }
+  }
+}
+
+@include mob {
+}

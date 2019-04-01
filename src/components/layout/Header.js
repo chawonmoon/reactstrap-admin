@@ -3,16 +3,12 @@ import { Link } from "react-router-dom";
 import { HomeLogo } from "images";
 
 class Header extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <header className="admin-header">
         <h1>
-          <Link to="/">
-            <img src={HomeLogo} alt="서울도시가스 모바일고객센터 관리자" />
+          <Link to="/Main">
+            <img src="https://via.placeholder.com/225x62" alt="더미 로고" />
           </Link>
         </h1>
         <a

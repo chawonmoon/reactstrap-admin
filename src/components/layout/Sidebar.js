@@ -19,7 +19,7 @@ const OBJ_MENUS_NAME = {
     {
       trunks: "0",
       menu: "HOME",
-      linkto: "/",
+      linkto: "/Home",
       icon: "ico-home",
       childepth: []
     },
@@ -58,7 +58,7 @@ const OBJ_MENUS_NAME = {
 const ARR_MENUS_DEPTH = [];
 
 // 각 메뉴의 하위depth의 유무를 파악하여 하위depth 컴포넌트를 리턴하는 함수
-const FN_MENUS_RENDER = (menus, i) => {
+const FN_MENUS_RENDER = (menus, i, router) => {
   if (menus.childepth.length > 0) {
     return <Childepth menu={menus} no={i} trunks={menus.trunks} key={i} />;
   } else {
@@ -85,7 +85,7 @@ class Sidebar extends Component {
       <aside className="admin-sidebar">
         <ul>
           {this.state.menuDatas.menuData.map((menus, i) => {
-            return FN_MENUS_RENDER(menus, i);
+            return FN_MENUS_RENDER(menus, i, this.props.router);
           })}
         </ul>
       </aside>
@@ -168,7 +168,7 @@ class Childepth extends Component {
             <CardBody>
               <ul>
                 {this.props.menu.childepth.map((menus, i) => {
-                  return FN_MENUS_RENDER(menus, i);
+                  return FN_MENUS_RENDER(menus, i, this.props.router);
                 })}
               </ul>
             </CardBody>

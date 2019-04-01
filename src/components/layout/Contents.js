@@ -7,7 +7,7 @@ class Contents extends Component {
     return (
       <div className="admin-contents">
         <div className="admin-contents-inner">
-          <Route exact path="/" component={Home} />
+          <Route path="/Home" component={Home} />
           <Route path="/Tables" component={Tables} />
           <Route path="/Utilitys" component={Utilitys} />
           <Route path="/Badges" component={Badges} />
