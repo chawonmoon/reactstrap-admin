@@ -1,16 +1,23 @@
-import React from "react";
+import React, { Fragment } from "react";
 import ReactDOM from "react-dom";
-import { HashRouter as Router, Route } from "react-router-dom";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import App from "App";
 import Logins from "Logins";
+import NoMatch from "NoMatch";
 import * as serviceWorker from "./serviceWorker";
 
 import "styles/index.scss";
 
 ReactDOM.render(
   <Router>
-    <Route exact path="/" component={App} />
-    <Route exact path="/Logins" component={Logins} />
+    <Fragment>
+      <Switch>
+        <Route exact path="/" component={App} />
+        <Route exact path="/:pages" component={App} />
+        <Route exact path="/Logins" component={Logins} />
+        <Route component={NoMatch} />
+      </Switch>
+    </Fragment>
   </Router>,
   document.getElementById("root")
 );

@@ -10,8 +10,8 @@ class ContentsWrap extends Component {
           "admin-contentsWrap " + (this.props.onSidebar ? "active" : "")
         }
       >
-        <Sidebar />
-        <Contents />
+        <Sidebar router={this.props.router} />
+        <Contents router={this.props.router} />
       </div>
     );
   }

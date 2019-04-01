@@ -15,11 +15,12 @@ import { Collapse, CardBody, Card } from "reactstrap";
 }
  */
 const OBJ_MENUS_NAME = {
+  common_link: "",
   menuData: [
     {
       trunks: "0",
       menu: "HOME",
-      linkto: "/",
+      linkto: "/Home",
       icon: "ico-home",
       childepth: []
     },
@@ -64,7 +65,7 @@ const FN_MENUS_RENDER = (menus, i) => {
   } else {
     return (
       <li key={i}>
-        <Link to={menus.linkto}>
+        <Link to={OBJ_MENUS_NAME.common_link + menus.linkto}>
           <i className={menus.icon} />
           <span>{menus.menu}</span>
         </Link>
