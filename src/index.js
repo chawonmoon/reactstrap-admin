@@ -13,8 +13,8 @@ ReactDOM.render(
     <Fragment>
       <Switch>
         <Route exact path="/" component={App} />
-        <Route exact path="/:pages" component={App} />
         <Route exact path="/Logins" component={Logins} />
+        <Route exact path="/:pages" component={App} />
         <Route component={NoMatch} />
       </Switch>
     </Fragment>
