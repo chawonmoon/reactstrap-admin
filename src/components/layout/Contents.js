@@ -1,23 +1,41 @@
 import React, { Component } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import { Home, Tables, Utilitys, Buttons, Badges } from "components/pages";
 import NoMatch from "NoMatch";
 
 class Contents extends Component {
-  constructor(props) {
-    super(props);
-    console.log(this.props);
-  }
   render() {
     return (
       <div className="admin-contents">
         <div className="admin-contents-inner">
-          <Route exact path="/" component={Home} />
-          <Route path="/Home" component={Home} />
-          <Route path="/Tables" component={Tables} />
-          <Route path="/Utilitys" component={Utilitys} />
-          <Route path="/Badges" component={Badges} />
-          <Route path="/Buttons" component={Buttons} />
+          <Switch>
+            <Route
+              exact
+              path={`${this.props.router.match.path}`}
+              component={Home}
+            />
+            <Route
+              exact
+              path={`${this.props.router.match.path}Tables`}
+              component={Tables}
+            />
+            <Route
+              exact
+              path={`${this.props.router.match.path}Utilitys`}
+              component={Utilitys}
+            />
+            <Route
+              exact
+              path={`${this.props.router.match.path}Badges`}
+              component={Badges}
+            />
+            <Route
+              exact
+              path={`${this.props.router.match.path}Buttons`}
+              component={Buttons}
+            />
+            <Redirect to="/Logins" />
+          </Switch>
         </div>
       </div>
     );
