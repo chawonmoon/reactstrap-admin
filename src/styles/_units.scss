@@ -129,7 +129,6 @@
   &.tables-ver {
     min-width: 720px;
   }
-
   tbody {
     th {
       width: 10%;
@@ -252,6 +251,84 @@
     &.dragging {
       cursor: -webkit-grabbing;
       cursor: grabbing;
+    }
+  }
+}
+
+// chatbot
+.chatbot {
+  dt {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 5px 10px 16px;
+    border-top: 5px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-top-right-radius: 0.25rem;
+    border-top-left-radius: 0.25rem;
+    font-size: 14px;
+    strong {
+      font-size: 16px;
+    }
+    .btn-link {
+      color: #aaaaaa;
+      &:hover {
+        color: #333333;
+        text-decoration: none;
+      }
+    }
+  }
+  dd {
+    padding: 10px 16px;
+    border: 1px solid #ccc;
+    border-bottom-right-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+    .bot,
+    .user {
+      position: relative;
+      padding: 10px 45px 5px;
+      min-height: 40px;
+      background: url("../images/bot.png") no-repeat left top;
+      p {
+        display: inline-block;
+        padding: 5px 10px;
+        margin: 0 0 0 10px;
+        border-radius: 0.25rem;
+        background: #cccccc;
+      }
+      &:after {
+        content: "◀";
+        position: absolute;
+        left: 46px;
+        top: 13px;
+        color: #cccccc;
+      }
+      &.result {
+        p {
+          background: #3c8dbc;
+          color: #fff;
+        }
+        &:after {
+          color: #3c8dbc;
+        }
+      }
+    }
+    .user {
+      text-align: right;
+      background: url("../images/user.png") no-repeat right top;
+      &:after {
+        content: "▶";
+        position: absolute;
+        left: auto;
+        right: 46px;
+        top: 13px;
+        color: #cccccc;
+      }
+      p {
+        margin-left: auto;
+        margin-right: 10px;
+      }
     }
   }
 }

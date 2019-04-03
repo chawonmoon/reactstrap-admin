@@ -5,6 +5,7 @@ import SelectboxsMulti from "components/units/SelectboxsMulti";
 import Searchutils from "components/units/Searchutils";
 import Colorpickers from "components/units/Colorpickers";
 import Dragndroplist from "components/units/Dragndroplist";
+import Chatbot from "components/units/Chatbot";
 
 class Utilitys extends Component {
   constructor(props) {
@@ -51,6 +52,9 @@ class Utilitys extends Component {
         <br />
         <h2>드래그 앤 드롭 리스트</h2>
         <Dragndroplist />
+        <br />
+        <h2>챗봇</h2>
+        <Chatbot />
       </Fragment>
     );
   }

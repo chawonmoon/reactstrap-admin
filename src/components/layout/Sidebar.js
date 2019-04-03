@@ -51,6 +51,13 @@ const OBJ_MENUS_NAME = {
       linkto: "Buttons",
       icon: "ico-bullhorn",
       childepth: []
+    },
+    {
+      trunks: "5",
+      menu: "Logins",
+      linkto: "Logins",
+      icon: "ico-bullhorn",
+      childepth: []
     }
   ]
 };

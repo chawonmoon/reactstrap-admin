@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import Breadcrumbs from "components/units/Breadcrumbs";
-import { Badge, Button, Input } from "reactstrap";
+import { Badge } from "reactstrap";
 
 class Badges extends Component {
   constructor(props) {
