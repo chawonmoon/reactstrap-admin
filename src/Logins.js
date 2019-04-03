@@ -36,7 +36,7 @@ class Logins extends Component {
             </FormGroup>
           </div>
           <div>
-            <Link to="/Main" color="info" size="lg">
+            <Link to="/" color="info" size="lg">
               <i className="ico-user-check" />
               <span>로그인</span>
             </Link>

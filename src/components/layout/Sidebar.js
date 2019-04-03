@@ -15,39 +15,40 @@ import { Collapse, CardBody, Card } from "reactstrap";
 }
  */
 const OBJ_MENUS_NAME = {
+  common_link: "",
   menuData: [
     {
       trunks: "0",
       menu: "HOME",
-      linkto: "/Home",
+      linkto: "",
       icon: "ico-home",
       childepth: []
     },
     {
       trunks: "1",
       menu: "Table",
-      linkto: "/Tables",
+      linkto: "Tables",
       icon: "ico-bullhorn",
       childepth: []
     },
     {
       trunks: "2",
       menu: "Utilitys",
-      linkto: "/Utilitys",
+      linkto: "Utilitys",
       icon: "ico-bullhorn",
       childepth: []
     },
     {
       trunks: "3",
       menu: "Badges",
-      linkto: "/Badges",
+      linkto: "Badges",
       icon: "ico-bullhorn",
       childepth: []
     },
     {
       trunks: "4",
       menu: "Buttons",
-      linkto: "/Buttons",
+      linkto: "Buttons",
       icon: "ico-bullhorn",
       childepth: []
     }
@@ -58,13 +59,22 @@ const OBJ_MENUS_NAME = {
 const ARR_MENUS_DEPTH = [];
 
 // 각 메뉴의 하위depth의 유무를 파악하여 하위depth 컴포넌트를 리턴하는 함수
-const FN_MENUS_RENDER = (menus, i, router) => {
+
+const FN_MENUS_RENDER = (menus, i, match) => {
   if (menus.childepth.length > 0) {
-    return <Childepth menu={menus} no={i} trunks={menus.trunks} key={i} />;
+    return (
+      <Childepth
+        menu={menus}
+        no={i}
+        trunks={menus.trunks}
+        key={i}
+        match={match}
+      />
+    );
   } else {
     return (
       <li key={i}>
-        <Link to={menus.linkto}>
+        <Link to={`${match.url}` + menus.linkto}>
           <i className={menus.icon} />
           <span>{menus.menu}</span>
         </Link>
@@ -77,6 +87,7 @@ const FN_MENUS_RENDER = (menus, i, router) => {
 class Sidebar extends Component {
   constructor(props) {
     super(props);
+
     this.state = { menuDatas: OBJ_MENUS_NAME };
   }
 
@@ -85,7 +96,7 @@ class Sidebar extends Component {
       <aside className="admin-sidebar">
         <ul>
           {this.state.menuDatas.menuData.map((menus, i) => {
-            return FN_MENUS_RENDER(menus, i, this.props.router);
+            return FN_MENUS_RENDER(menus, i, this.props.router.match);
           })}
         </ul>
       </aside>
@@ -168,7 +179,7 @@ class Childepth extends Component {
             <CardBody>
               <ul>
                 {this.props.menu.childepth.map((menus, i) => {
-                  return FN_MENUS_RENDER(menus, i, this.props.router);
+                  return FN_MENUS_RENDER(menus, i, this.props.match);
                 })}
               </ul>
             </CardBody>

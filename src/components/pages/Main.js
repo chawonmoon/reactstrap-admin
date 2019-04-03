@@ -21,7 +21,10 @@ class Main extends Component {
     return (
       <Fragment>
         <Header onSidebar={this.sidebarToggle} />
-        <ContentsWrap onSidebar={this.state.isSideBar} />
+        <ContentsWrap
+          onSidebar={this.state.isSideBar}
+          router={this.props.router}
+        />
         <Footer />
       </Fragment>
     );
