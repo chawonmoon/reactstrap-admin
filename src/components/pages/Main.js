@@ -7,15 +7,13 @@ class Main extends Component {
   constructor(props) {
     super(props);
     this.state = { isSideBar: true };
-
-    this.sidebarToggle = this.sidebarToggle.bind(this);
   }
 
-  sidebarToggle() {
+  sidebarToggle = () => {
     this.setState(state => ({
       isSideBar: !state.isSideBar
     }));
-  }
+  };
 
   render() {
     return (

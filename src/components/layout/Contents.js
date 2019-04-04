@@ -14,25 +14,22 @@ class Contents extends Component {
               component={Home}
             />
             <Route
-              exact
-              path={`${this.props.router.match.path}Tables`}
+              path={`${this.props.router.match.path}Tables:id?`}
               component={Tables}
             />
             <Route
-              exact
-              path={`${this.props.router.match.path}Utilitys`}
+              path={`${this.props.router.match.path}Utilitys:id?`}
               component={Utilitys}
             />
             <Route
-              exact
-              path={`${this.props.router.match.path}Badges`}
+              path={`${this.props.router.match.path}Badges:id?`}
               component={Badges}
             />
             <Route
-              exact
-              path={`${this.props.router.match.path}Buttons`}
+              path={`${this.props.router.match.path}Buttons:id?`}
               component={Buttons}
             />
+
             <Redirect to="/Logins" />
           </Switch>
         </div>

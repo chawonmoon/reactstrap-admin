@@ -1,6 +1,7 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import { Collapse, CardBody, Card } from "reactstrap";
+import Modals from "components/units/Modals";
 
 /* 
 // 메뉴 정보 상수 //
@@ -15,13 +16,13 @@ import { Collapse, CardBody, Card } from "reactstrap";
 }
  */
 const OBJ_MENUS_NAME = {
-  common_link: "",
   menuData: [
     {
       trunks: "0",
       menu: "HOME",
       linkto: "",
       icon: "ico-home",
+      directmodal: false,
       childepth: []
     },
     {
@@ -29,6 +30,7 @@ const OBJ_MENUS_NAME = {
       menu: "Table",
       linkto: "Tables",
       icon: "ico-bullhorn",
+      directmodal: false,
       childepth: []
     },
     {
@@ -36,6 +38,7 @@ const OBJ_MENUS_NAME = {
       menu: "Utilitys",
       linkto: "Utilitys",
       icon: "ico-bullhorn",
+      directmodal: false,
       childepth: []
     },
     {
@@ -43,6 +46,7 @@ const OBJ_MENUS_NAME = {
       menu: "Badges",
       linkto: "Badges",
       icon: "ico-bullhorn",
+      directmodal: false,
       childepth: []
     },
     {
@@ -50,6 +54,7 @@ const OBJ_MENUS_NAME = {
       menu: "Buttons",
       linkto: "Buttons",
       icon: "ico-bullhorn",
+      directmodal: false,
       childepth: []
     },
     {
@@ -57,6 +62,15 @@ const OBJ_MENUS_NAME = {
       menu: "Logins",
       linkto: "Logins",
       icon: "ico-bullhorn",
+      directmodal: false,
+      childepth: []
+    },
+    {
+      trunks: "5",
+      menu: "Modal",
+      linkto: "Modals",
+      icon: "ico-bullhorn",
+      directmodal: true,
       childepth: []
     }
   ]
@@ -79,14 +93,34 @@ const FN_MENUS_RENDER = (menus, i, match) => {
       />
     );
   } else {
-    return (
-      <li key={i}>
-        <Link to={`${match.url}` + menus.linkto}>
-          <i className={menus.icon} />
-          <span>{menus.menu}</span>
-        </Link>
-      </li>
-    );
+    if (menus.directmodal) {
+      return (
+        <Modals
+          key={i}
+          button={
+            <li key={i}>
+              <Link to={`${match.url}` + menus.linkto}>
+                <i className={menus.icon} />
+                <span>{menus.menu}</span>
+              </Link>
+            </li>
+          }
+          titles="관리자메뉴"
+          contents={<Fragment>1</Fragment>}
+          isOpen={false}
+          fullModal={false}
+        />
+      );
+    } else {
+      return (
+        <li key={i}>
+          <Link to={`${match.url}` + menus.linkto}>
+            <i className={menus.icon} />
+            <span>{menus.menu}</span>
+          </Link>
+        </li>
+      );
+    }
   }
 };
 
@@ -102,6 +136,7 @@ class Sidebar extends Component {
     return (
       <aside className="admin-sidebar">
         <ul>
+          {console.log(this.props)}
           {this.state.menuDatas.menuData.map((menus, i) => {
             return FN_MENUS_RENDER(menus, i, this.props.router.match);
           })}
