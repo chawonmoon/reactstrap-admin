@@ -26,6 +26,9 @@ div.admin-contentsWrap {
           padding: 15px 10px 15px 20px;
           color: #fff;
           transition: all 0.2s ease-out;
+          &.active {
+            background: #d37175;
+          }
           i {
             display: inline-block;
             height: 23px;

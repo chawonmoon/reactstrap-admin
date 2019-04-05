@@ -4,10 +4,7 @@ import Footer from "components/layout/Footer";
 import ContentsWrap from "components/layout/ContentsWrap";
 
 class Main extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { isSideBar: true };
-  }
+  state = { isSideBar: true };
 
   sidebarToggle = () => {
     this.setState(state => ({
@@ -18,7 +15,7 @@ class Main extends Component {
   render() {
     return (
       <Fragment>
-        <Header onSidebar={this.sidebarToggle} />
+        <Header onSidebar={this.sidebarToggle} router={this.props.router} />
         <ContentsWrap
           onSidebar={this.state.isSideBar}
           router={this.props.router}

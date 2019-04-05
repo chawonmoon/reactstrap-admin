@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { Collapse, CardBody, Card } from "reactstrap";
 import Modals from "components/units/Modals";
+import Home from "components/pages/Home";
 
 /* 
 // 메뉴 정보 상수 //
@@ -20,7 +21,7 @@ const OBJ_MENUS_NAME = {
     {
       trunks: "0",
       menu: "HOME",
-      linkto: "",
+      linkto: "Home",
       icon: "ico-home",
       directmodal: false,
       childepth: []
@@ -81,64 +82,87 @@ const ARR_MENUS_DEPTH = [];
 
 // 각 메뉴의 하위depth의 유무를 파악하여 하위depth 컴포넌트를 리턴하는 함수
 
-const FN_MENUS_RENDER = (menus, i, match) => {
-  if (menus.childepth.length > 0) {
-    return (
-      <Childepth
-        menu={menus}
-        no={i}
-        trunks={menus.trunks}
-        key={i}
-        match={match}
-      />
-    );
-  } else {
-    if (menus.directmodal) {
+class FN_MENUS_RENDER extends Component {
+  state = {
+    menus: this.props.menus,
+    router: this.props.router
+  };
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+    let next = nextProps.router,
+      prev = prevState.router;
+
+    if (prev !== next) {
+      return { router: next };
+    }
+
+    return null;
+  }
+
+  render() {
+    if (this.state.menus.childepth.length > 0) {
       return (
-        <Modals
-          key={i}
-          button={
-            <li key={i}>
-              <Link to={`${match.url}` + menus.linkto}>
-                <i className={menus.icon} />
-                <span>{menus.menu}</span>
-              </Link>
-            </li>
-          }
-          titles="관리자메뉴"
-          contents={<Fragment>1</Fragment>}
-          isOpen={false}
-          fullModal={false}
+        <Childepth
+          menu={this.state.menus}
+          trunks={this.state.menus.trunks}
+          router={this.state.router}
         />
       );
     } else {
-      return (
-        <li key={i}>
-          <Link to={`${match.url}` + menus.linkto}>
-            <i className={menus.icon} />
-            <span>{menus.menu}</span>
-          </Link>
-        </li>
-      );
+      if (this.state.menus.directmodal) {
+        return (
+          <Modals
+            button={
+              <li>
+                <a href="javascript:void(0);">
+                  <i className={this.state.menus.icon} />
+                  <span>{this.state.menus.menu}</span>
+                </a>
+              </li>
+            }
+            titles="관리자메뉴"
+            contents={<p>기본 컨탠츠 영역</p>}
+            isOpen={false}
+            fullModal={false}
+            router={this.state.router}
+          />
+        );
+      } else {
+        return (
+          <li>
+            <NavLink
+              to={`${this.state.router.match.url}` + this.state.menus.linkto}
+              activeClassName="active"
+            >
+              <i className={this.state.menus.icon} />
+              <span>{this.state.menus.menu}</span>
+            </NavLink>
+          </li>
+        );
+      }
     }
   }
-};
+}
 
 // 메인 컴포넌트
 class Sidebar extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = { menuDatas: OBJ_MENUS_NAME };
-  }
+  state = {
+    menuDatas: OBJ_MENUS_NAME,
+    router: this.props.router
+  };
 
   render() {
     return (
       <aside className="admin-sidebar">
         <ul>
-          {console.log(this.props)}
           {this.state.menuDatas.menuData.map((menus, i) => {
-            return FN_MENUS_RENDER(menus, i, this.props.router.match);
+            return (
+              <FN_MENUS_RENDER
+                key={i}
+                menus={menus}
+                router={this.state.router}
+              />
+            );
           })}
         </ul>
       </aside>
@@ -221,7 +245,13 @@ class Childepth extends Component {
             <CardBody>
               <ul>
                 {this.props.menu.childepth.map((menus, i) => {
-                  return FN_MENUS_RENDER(menus, i, this.props.match);
+                  return (
+                    <FN_MENUS_RENDER
+                      key={i}
+                      menus={menus}
+                      match={this.props.router.match}
+                    />
+                  );
                 })}
               </ul>
             </CardBody>

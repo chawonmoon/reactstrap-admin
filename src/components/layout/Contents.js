@@ -10,23 +10,27 @@ class Contents extends Component {
           <Switch>
             <Route
               exact
-              path={`${this.props.router.match.path}`}
+              path={`${this.props.router.match.path}Home/:id?`}
               component={Home}
             />
             <Route
-              path={`${this.props.router.match.path}Tables:id?`}
+              exact
+              path={`${this.props.router.match.path}Tables/:id?`}
               component={Tables}
             />
             <Route
-              path={`${this.props.router.match.path}Utilitys:id?`}
+              exact
+              path={`${this.props.router.match.path}Utilitys/:id?`}
               component={Utilitys}
             />
             <Route
-              path={`${this.props.router.match.path}Badges:id?`}
+              exact
+              path={`${this.props.router.match.path}Badges/:id?`}
               component={Badges}
             />
             <Route
-              path={`${this.props.router.match.path}Buttons:id?`}
+              exact
+              path={`${this.props.router.match.path}Buttons/:id?`}
               component={Buttons}
             />
 

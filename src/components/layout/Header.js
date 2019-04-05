@@ -3,13 +3,12 @@ import { Link } from "react-router-dom";
 import { Button } from "reactstrap";
 //import { HomeLogo } from "images";
 
-
 class Header extends Component {
   render() {
     return (
       <header className="admin-header" id="admin-header">
         <h1>
-          <Link to="/Main">
+          <Link to={`${this.props.router.match.url}Home`}>
             <img src="https://via.placeholder.com/225x62" alt="더미 로고" />
           </Link>
         </h1>
