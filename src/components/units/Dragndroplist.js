@@ -76,11 +76,13 @@ class Dragndroplist extends Component {
                     >
                       <p>
                         <i className="ico-menu" />
-                        <span className="title">{item.content}</span>
-                        <Badge color="danger">사용중지</Badge>
-                        <Badge color="primary">Primary</Badge>
-                        <Badge color="secondary">Secondary</Badge>
-                        <Badge color="success">Success</Badge>
+                        <em className="title">{item.content}</em>
+                        <span className="badges">
+                          <Badge color="danger">사용중지</Badge>
+                          <Badge color="primary">Primary</Badge>
+                          <Badge color="secondary">Secondary</Badge>
+                          <Badge color="success">Success</Badge>
+                        </span>
                       </p>
                       <ButtonGroup>
                         <Button color="warning" size="sm">

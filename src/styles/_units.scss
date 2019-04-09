@@ -34,7 +34,7 @@
 .selectboxsMulti-wrap {
   min-width: 0px;
   .selectboxs {
-    > div > div:first-child {
+    > div:first-child > div:first-child {
       flex: none;
       min-width: 160px;
     }
@@ -60,17 +60,20 @@
 
 // 게시판 search-utils
 .search-utils {
-  width: 385px;
   margin-left: 5px;
   display: flex;
   justify-content: flex-end;
+
+  .selectboxs-wrap {
+    width: 100px;
+  }
   .input-group {
-    .selectboxs-wrap {
-      width: 100px;
-    }
     .search-text {
       border-radius: 0.25rem 0 0 0.25rem;
       margin-left: 5px;
+    }
+    .input-group-append {
+      display: block;
     }
   }
 }
@@ -96,6 +99,9 @@
   }
   & > div > .btn {
     margin-right: 5px;
+    &:last-child {
+      margin-right: 0;
+    }
   }
   .btn {
     i {
@@ -233,11 +239,16 @@
     padding: 16px;
     p {
       margin-bottom: 0;
-      span.title {
+      .title {
+        display: inline-block;
         font-size: 16px;
+        font-style: normal;
       }
-      .badge {
-        margin-left: 5px;
+      .badges {
+        display: inline-block;
+        .badge {
+          margin-left: 5px;
+        }
       }
       i {
         display: inline-block;
@@ -398,4 +409,84 @@
 }
 
 @include mob {
+  .breadcrumbs .breadcrumb {
+    justify-content: flex-start;
+  }
+  .boards-list-utils {
+    justify-content: flex-start;
+    flex-direction: column-reverse;
+    > .selectboxs-wrap {
+      margin-top: 15px;
+    }
+  }
+
+  .selectboxsMulti-wrap {
+    min-width: 0px;
+    .selectboxs {
+      > div:first-child > div:first-child {
+        flex: 1;
+        min-width: 0;
+      }
+    }
+  }
+
+  .search-utils {
+    margin-left: 0;
+    flex-direction: column;
+    .input-group .search-text {
+      margin-left: 0;
+    }
+    .selectboxs-wrap {
+      width: auto;
+      margin-bottom: 15px;
+    }
+  }
+
+  .btn-groups.pages.list {
+    flex-direction: column-reverse;
+    nav {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 15px;
+    }
+  }
+
+  .alert {
+    text-align: center;
+  }
+
+  .table-defaults {
+    &.tables-hor {
+      tbody {
+        th {
+          width: 100px;
+          word-break: keep-all;
+        }
+      }
+    }
+  }
+
+  .drag-lists {
+    .drag-items {
+      flex-direction: column;
+      .title {
+        padding: 0 0 5px;
+      }
+      .badges {
+        padding: 8px 0;
+      }
+      .btn-group {
+        margin-top: 8px;
+        margin-left: 0;
+        justify-content: flex-end;
+        > * {
+          flex: 0 1 auto;
+        }
+      }
+    }
+  }
+
+  .btn-groups.modals {
+    padding: 0;
+  }
 }

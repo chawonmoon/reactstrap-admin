@@ -12,6 +12,22 @@ class Main extends Component {
     }));
   };
 
+  resizeHandler = e => {
+    if (window.innerWidth > 767) {
+      this.setState(state => ({
+        isSideBar: true
+      }));
+    } else {
+      this.setState(state => ({
+        isSideBar: false
+      }));
+    }
+  };
+
+  componentDidMount() {
+    window.addEventListener("resize", this.resizeHandler);
+  }
+
   render() {
     return (
       <Fragment>
