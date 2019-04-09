@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 import { NavLink } from "react-router-dom";
 import { Collapse, CardBody, Card } from "reactstrap";
 import Modals from "components/units/Modals";
-import Home from "components/pages/Home";
+import Toasts from "components/units/Toasts";
 
 /* 
 // 메뉴 정보 상수 //
@@ -67,9 +67,17 @@ const OBJ_MENUS_NAME = {
       childepth: []
     },
     {
-      trunks: "5",
+      trunks: "6",
       menu: "Modal",
       linkto: "Modals",
+      icon: "ico-bullhorn",
+      directmodal: true,
+      childepth: []
+    },
+    {
+      trunks: "7",
+      menu: "Toast",
+      linkto: "Toast",
       icon: "ico-bullhorn",
       directmodal: true,
       childepth: []
@@ -100,8 +108,9 @@ class FN_MENUS_RENDER extends Component {
   }
 
   render() {
+    let resultJsx = null;
     if (this.state.menus.childepth.length > 0) {
-      return (
+      resultJsx = (
         <Childepth
           menu={this.state.menus}
           trunks={this.state.menus.trunks}
@@ -110,25 +119,42 @@ class FN_MENUS_RENDER extends Component {
       );
     } else {
       if (this.state.menus.directmodal) {
-        return (
-          <Modals
-            button={
-              <li>
-                <a href="javascript:void(0);">
-                  <i className={this.state.menus.icon} />
-                  <span>{this.state.menus.menu}</span>
-                </a>
-              </li>
-            }
-            titles="관리자메뉴"
-            contents={<p>기본 컨탠츠 영역</p>}
-            isOpen={false}
-            fullModal={false}
-            router={this.state.router}
-          />
-        );
+        if (this.state.menus.menu === "Modal") {
+          resultJsx = (
+            <Modals
+              button={
+                <li>
+                  <a href="javascript:void(0);">
+                    <i className={this.state.menus.icon} />
+                    <span>{this.state.menus.menu}</span>
+                  </a>
+                </li>
+              }
+              titles="관리자메뉴"
+              contents={<p>기본 컨탠츠 영역</p>}
+              isOpen={false}
+              fullModal={false}
+              router={this.state.router}
+            />
+          );
+        } else {
+          resultJsx = (
+            <Toasts
+              button={
+                <li>
+                  <a href="javascript:void(0);">
+                    <i className={this.state.menus.icon} />
+                    <span>{this.state.menus.menu}</span>
+                  </a>
+                </li>
+              }
+              msg="기본토스트"
+              lifeTime={5000}
+            />
+          );
+        }
       } else {
-        return (
+        resultJsx = (
           <li>
             <NavLink
               to={`${this.state.router.match.url}` + this.state.menus.linkto}
@@ -141,6 +167,7 @@ class FN_MENUS_RENDER extends Component {
         );
       }
     }
+    return resultJsx;
   }
 }
 

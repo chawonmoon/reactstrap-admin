@@ -10,6 +10,16 @@ class Contents extends Component {
           <Switch>
             <Route
               exact
+              path={`${this.props.router.match.path}/:id?`}
+              component={Home}
+            />
+            <Route
+              exact
+              path={`${this.props.router.match.path}//:id?`}
+              component={Home}
+            />
+            <Route
+              exact
               path={`${this.props.router.match.path}Home/:id?`}
               component={Home}
             />
@@ -34,7 +44,7 @@ class Contents extends Component {
               component={Buttons}
             />
 
-            <Redirect to="/Logins" />
+            {/* <Redirect to="/Logins" /> */}
           </Switch>
         </div>
       </div>

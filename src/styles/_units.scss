@@ -32,7 +32,13 @@
   }
 }
 .selectboxsMulti-wrap {
-  min-width: 220px;
+  min-width: 0px;
+  .selectboxs {
+    > div > div:first-child {
+      flex: none;
+      min-width: 160px;
+    }
+  }
   .badge {
     margin-left: 5px;
   }
@@ -384,6 +390,11 @@
       padding: 0;
     }
   }
+}
+
+// toast
+.Toastify__toast--default {
+  z-index: 998;
 }
 
 @include mob {
