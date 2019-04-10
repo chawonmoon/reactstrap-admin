@@ -44,7 +44,7 @@ class Contents extends Component {
               component={Buttons}
             />
 
-            {/* <Redirect to="/Logins" /> */}
+            <Redirect to="/Logins" />
           </Switch>
         </div>
       </div>

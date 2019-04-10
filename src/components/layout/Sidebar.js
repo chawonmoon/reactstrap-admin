@@ -130,11 +130,14 @@ class FN_MENUS_RENDER extends Component {
                   </a>
                 </li>
               }
+              isOpen={false}
               titles="관리자메뉴"
               contents={<p>기본 컨탠츠 영역</p>}
-              isOpen={false}
               fullModal={false}
+              parentTag="body"
+              path="/Modal"
               router={this.state.router}
+              closeType="close"
             />
           );
         } else {
