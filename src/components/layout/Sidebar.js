@@ -136,6 +136,7 @@ class FN_MENUS_RENDER extends Component {
               fullModal={false}
               parentTag="body"
               path="/Modal"
+              pathDepth={2}
               router={this.state.router}
               closeType="close"
             />

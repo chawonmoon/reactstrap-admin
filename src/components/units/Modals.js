@@ -15,6 +15,7 @@ class Modals extends Component {
     parentTag: "body",
     router: null,
     path: "/modal",
+    pathDepth: 2,
     cpath: null,
     closeType: "cancel"
   };
@@ -28,10 +29,10 @@ class Modals extends Component {
     fullModal: this.props.fullModal, // 전체방식 모달 유무 (boolen)
     parentTag: this.props.parentTag, // 모달의 부모 태그 (string-[#:id/.:class/없을때:dom])
     router: this.props.router, // 라우터 작업중...
-    path: this.props.path,
+    path: this.props.path, // path에 붙을 고유주소
+    pathDepth: this.props.pathDepth, // 기본 path를 '/'로 나누었을때의 최대 뎁스
     cpath: this.props.router.history.location.pathname, // 라우터 path 작업중...
-    prevPath: null,
-    closeType: this.props.closeType
+    closeType: this.props.closeType // close: 라우터 히스토리 쌓임 / cancel: 라우터 히스토리 중지
   };
 
   openModal = prams => {
@@ -41,16 +42,16 @@ class Modals extends Component {
       pathname = loc + id;
 
     if (prams === "init") {
-      if (splitloc.length > 2) {
+      if (splitloc.length > this.state.pathDepth) {
         this.setState(state => ({
           prevPath: JSON.parse(JSON.stringify(splitloc))
-            .splice(0, 2)
+            .splice(0, this.state.pathDepth)
             .join("/")
         }));
         this.props.router.history.push(loc);
       }
     } else {
-      if (splitloc.length <= 2) {
+      if (splitloc.length <= this.state.pathDepth) {
         this.setState(state => ({ prevPath: loc }));
         this.props.router.history.push(pathname);
       }
@@ -87,14 +88,14 @@ class Modals extends Component {
       openBoolean = false;
 
     if (prev === next) {
-      if (next.split("/").length > 2) {
+      if (next.split("/").length > prevState.pathDepth) {
         openBoolean = true;
         return { cpath: next, modalIsOpen: openBoolean };
       } else {
         return null;
       }
     } else {
-      if (next.split("/").length > 2) {
+      if (next.split("/").length > prevState.pathDepth) {
         openBoolean = true;
       }
       return { cpath: next, modalIsOpen: openBoolean };
