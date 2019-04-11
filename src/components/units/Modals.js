@@ -4,7 +4,7 @@ import BtngroupsModal from "components/units/BtngroupsModal";
 import Modal from "react-modal";
 
 Modal.setAppElement("#root");
-
+let prevPaths = null;
 class Modals extends Component {
   static defaultProps = {
     button: <Button color="info">기본버튼</Button>,
@@ -17,7 +17,7 @@ class Modals extends Component {
     path: "/modal",
     pathDepth: 2,
     cpath: null,
-    closeType: "cancel"
+    closeType: "close"
   };
 
   state = {
@@ -48,12 +48,12 @@ class Modals extends Component {
             .splice(0, this.state.pathDepth)
             .join("/")
         }));
-        this.props.router.history.push(loc);
+        this.props.router.history.push({ pathname: loc });
       }
     } else {
       if (splitloc.length <= this.state.pathDepth) {
         this.setState(state => ({ prevPath: loc }));
-        this.props.router.history.push(pathname);
+        this.props.router.history.push({ pathname: pathname });
       }
     }
   };
@@ -63,7 +63,7 @@ class Modals extends Component {
   };
 
   closeModal = () => {
-    this.props.router.history.push(this.state.prevPath);
+    this.props.router.history.push({ pathname: this.state.prevPath });
   };
 
   selectModalParent = () => {
@@ -85,21 +85,35 @@ class Modals extends Component {
   static getDerivedStateFromProps(nextProps, prevState) {
     let next = nextProps.router.history.location.pathname,
       prev = prevState.cpath,
-      openBoolean = false;
+      resultObj = { modalIsOpen: false };
 
     if (prev === next) {
+      resultObj.cpath = next;
       if (next.split("/").length > prevState.pathDepth) {
-        openBoolean = true;
-        return { cpath: next, modalIsOpen: openBoolean };
-      } else {
-        return null;
+        resultObj.modalIsOpen = true;
+        let arry = next.split("/"),
+          len = arry.length;
+        if (arry[len - 1] !== nextProps.path.replace("/", "")) {
+          nextProps.router.history.replace({
+            pathname: arry.splice(0, len - 1).join("/")
+          });
+        }
       }
     } else {
+      resultObj.cpath = next;
+      resultObj.prevPath = JSON.parse(JSON.stringify(next.split("/")))
+        .splice(0, prevState.pathDepth)
+        .join("/");
       if (next.split("/").length > prevState.pathDepth) {
-        openBoolean = true;
+        resultObj.modalIsOpen = true;
+        let arry = next.split("/"),
+          len = arry.length;
+        if (arry[len - 1] !== nextProps.path.replace("/", "")) {
+          nextProps.router.history.replace("/NoMatch");
+        }
       }
-      return { cpath: next, modalIsOpen: openBoolean };
     }
+    return resultObj;
   }
 
   componentDidMount() {
