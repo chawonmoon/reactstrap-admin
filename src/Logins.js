@@ -1,6 +1,11 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { Button, Input, FormGroup } from "reactstrap";
+import {
+  Button,
+  Input,
+  FormGroup,
+  FormFeedback,
+  CustomInput
+} from "reactstrap";
 
 class Logins extends Component {
   render() {
@@ -23,7 +28,10 @@ class Logins extends Component {
                   id="user_id"
                   placeholder="아이디를 입력해주십시오."
                   title="아이디"
+                  valid={false}
+                  invalid={false}
                 />
+                <FormFeedback>아이디를 확인 후 다시 시도해 주세요</FormFeedback>
               </FormGroup>
               <FormGroup>
                 <i className="ico-lock" />
@@ -33,7 +41,12 @@ class Logins extends Component {
                   id="user_pwd"
                   placeholder="비밀번호를 입력해주십시오."
                   title="비밀번호"
+                  valid={false}
+                  invalid={false}
                 />
+                <FormFeedback>
+                  비밀번호를 확인 후 다시 시도해 주세요
+                </FormFeedback>
               </FormGroup>
             </div>
             <div>

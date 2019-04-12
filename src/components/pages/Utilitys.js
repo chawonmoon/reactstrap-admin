@@ -6,6 +6,7 @@ import Searchutils from "components/units/Searchutils";
 import Colorpickers from "components/units/Colorpickers";
 import Dragndroplist from "components/units/Dragndroplist";
 import Chatbot from "components/units/Chatbot";
+import Files from "components/units/Files"
 
 class Utilitys extends Component {
   constructor(props) {
@@ -50,6 +51,8 @@ class Utilitys extends Component {
         <h2>컬러피커</h2>
         <Colorpickers />
         <br />
+        <h2>파일</h2>
+        <Files />
         <h2>드래그 앤 드롭 리스트</h2>
         <Dragndroplist />
         <br />

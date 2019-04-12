@@ -18,18 +18,19 @@
         overflow: hidden;
         i {
           position: absolute;
-          right: 6px;
+          left: 6px;
           top: 7px;
           width: 25px;
           text-align: center;
           font-size: 18px;
           color: #f3848c;
           &.ico-lock {
-            margin-right: -2px;
+            margin-left: 4px;
           }
         }
-        input {
-          padding-right: 36px;
+        input[type="text"],
+        input[type="password"] {
+          padding: 0 30px 0 36px;
         }
       }
     }
