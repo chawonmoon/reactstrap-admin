@@ -17,7 +17,8 @@ class Modals extends Component {
     path: "/modal",
     pathDepth: 2,
     cpath: null,
-    closeType: "close"
+    closeType: "close",
+    redirect: "/NoMatch"
   };
 
   state = {
@@ -32,7 +33,8 @@ class Modals extends Component {
     path: this.props.path, // path에 붙을 고유주소
     pathDepth: this.props.pathDepth, // 기본 path를 '/'로 나누었을때의 최대 뎁스
     cpath: this.props.router.history.location.pathname, // 라우터 path 작업중...
-    closeType: this.props.closeType // close: 라우터 히스토리 쌓임 / cancel: 라우터 히스토리 중지
+    closeType: this.props.closeType, // close: 라우터 히스토리 쌓임 / cancel: 라우터 히스토리 중지
+    redirect: this.props.redirect
   };
 
   openModal = prams => {
@@ -109,7 +111,7 @@ class Modals extends Component {
         let arry = next.split("/"),
           len = arry.length;
         if (arry[len - 1] !== nextProps.path.replace("/", "")) {
-          nextProps.router.history.replace("/NoMatch");
+          nextProps.router.history.replace(nextProps.redirect);
         }
       }
     }
