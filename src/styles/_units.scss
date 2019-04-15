@@ -406,6 +406,9 @@
 // input file
 figure.resultImg {
   display: none;
+  img {
+    max-width: 100%;
+  }
   &.active {
     display: block;
   }
@@ -521,11 +524,5 @@ figure.resultImg {
 
   .btn-groups.modals {
     padding: 0;
-  }
-
-  figure.resultImg {
-    img {
-      max-width: 100%;
-    }
   }
 }
