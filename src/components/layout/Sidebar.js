@@ -32,7 +32,24 @@ const OBJ_MENUS_NAME = {
       linkto: "Tables",
       icon: "ico-bullhorn",
       directmodal: false,
-      childepth: []
+      childepth: [
+        {
+          trunks: "1",
+          menu: "HOME",
+          linkto: "Home",
+          icon: "ico-home",
+          directmodal: false,
+          childepth: []
+        },
+        {
+          trunks: "1",
+          menu: "HOME",
+          linkto: "Home",
+          icon: "ico-home",
+          directmodal: false,
+          childepth: []
+        }
+      ]
     },
     {
       trunks: "2",
@@ -159,6 +176,7 @@ class FN_MENUS_RENDER extends Component {
           );
         }
       } else {
+        console.log(this.state.router);
         resultJsx = (
           <li>
             <NavLink
